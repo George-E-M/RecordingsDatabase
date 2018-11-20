@@ -1,0 +1,14 @@
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\bin\Debug\netcoreapp2.1\RecordingsDatabase.deps.json
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\bin\Debug\netcoreapp2.1\RecordingsDatabase.runtimeconfig.json
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\bin\Debug\netcoreapp2.1\RecordingsDatabase.runtimeconfig.dev.json
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\bin\Debug\netcoreapp2.1\RecordingsDatabase.dll
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.csprojAssemblyReference.cache
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.csproj.CoreCompileInputs.cache
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.RazorAssemblyInfo.cache
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.RazorAssemblyInfo.cs
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.AssemblyInfoInputs.cache
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.AssemblyInfo.cs
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.RazorTargetAssemblyInfo.cache
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\bin\Debug\netcoreapp2.1\RecordingsDatabase.pdb
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.dll
+c:\users\admin\source\repos\RecordingsDatabase\RecordingsDatabase\obj\Debug\netcoreapp2.1\RecordingsDatabase.pdb
