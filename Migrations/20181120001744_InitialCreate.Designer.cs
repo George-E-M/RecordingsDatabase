@@ -28,7 +28,7 @@ namespace RecordingsDatabase.Migrations
 
                     b.Property<string>("Syllables");
 
-                    b.Property<string>("Tags");
+                    b.Property<string>("Tag");
 
                     b.Property<string>("Uploaded");
 

@@ -31,7 +31,7 @@ namespace RecordingsDatabase.Controllers
         [HttpGet]
         public IEnumerable<Recording> GetRecording()
         {
-            return _context.Recordings;
+            return _context.Recording;
         }
 
         // GET: api/Recordings/5
@@ -43,7 +43,7 @@ namespace RecordingsDatabase.Controllers
                 return BadRequest(ModelState);
             }
 
-            var recording = await _context.Recordings.FindAsync(id);
+            var recording = await _context.Recording.FindAsync(id);
 
             if (recording == null)
             {
@@ -62,7 +62,7 @@ namespace RecordingsDatabase.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != recording.ID)
+            if (id != recording.Id)
             {
                 return BadRequest();
             }
@@ -97,10 +97,10 @@ namespace RecordingsDatabase.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Recordings.Add(recording);
+            _context.Recording.Add(recording);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRecording", new { id = recording.ID }, recording);
+            return CreatedAtAction("GetRecording", new { id = recording.Id }, recording);
         }
 
         // DELETE: api/Recordings/5
@@ -112,13 +112,13 @@ namespace RecordingsDatabase.Controllers
                 return BadRequest(ModelState);
             }
 
-            var recording = await _context.Recordings.FindAsync(id);
+            var recording = await _context.Recording.FindAsync(id);
             if (recording == null)
             {
                 return NotFound();
             }
 
-            _context.Recordings.Remove(recording);
+            _context.Recording.Remove(recording);
             await _context.SaveChangesAsync();
 
             return Ok(recording);
@@ -129,7 +129,7 @@ namespace RecordingsDatabase.Controllers
         [HttpGet]
         public async Task<List<string>> GetTags()
         {
-            var recordings = (from m in _context.Recordings
+            var recordings = (from m in _context.Recording
                          select m.Tag).Distinct();
 
             var returned = await recordings.ToListAsync();
@@ -139,7 +139,7 @@ namespace RecordingsDatabase.Controllers
 
         private bool RecordingExists(string id)
         {
-            return _context.Recordings.Any(e => e.ID == id);
+            return _context.Recording.Any(e => e.Id == id);
         }
 
         [HttpPost, Route("upload")]
@@ -163,7 +163,7 @@ namespace RecordingsDatabase.Controllers
 
                     Recording recordingObject = new Recording();
                     recordingObject.Word = recording.Word;
-                    recordingObject.Tag = recording.Tags;
+                    recordingObject.Tag = recording.Tag;
                     recordingObject.Syllables = recording.Syllables;
                     recordingObject.Rating = recording.Rating;
 
@@ -171,7 +171,8 @@ namespace RecordingsDatabase.Controllers
                     recordingObject.Uploaded = DateTime.Now.ToString();
                     //recordingObject.RecordingLength = image.length;
 
-                    _context.Recordings.Add(recordingObject);
+                    _context.Recording.Add(recordingObject);
+                    Console.WriteLine(recordingObject.Id);
                     await _context.SaveChangesAsync();
 
                     return Ok($"File: {recording.Word} has successfully uploaded");
@@ -193,7 +194,7 @@ namespace RecordingsDatabase.Controllers
             var storageAccount = new CloudStorageAccount(new StorageCredentials(accountName, accountKey), true);
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-            CloudBlobContainer imagesContainer = blobClient.GetContainerReference("images");
+            CloudBlobContainer imagesContainer = blobClient.GetContainerReference("recordings");
 
             string storageConnectionString = _configuration["AzureBlob:connectionString"];
 

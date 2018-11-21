@@ -9,7 +9,7 @@ namespace RecordingsDatabase.Models
     public class RecordingItem
     {
         public string Word { get; set; }
-        public string Tags { get; set; }
+        public string Tag { get; set; }
         public string Syllables { get; set; }
         public string Rating { get; set; }
         public IFormFile Image { get; set; }

@@ -7,7 +7,7 @@ namespace RecordingsDatabase.Models
 {
     public class Recording
     {
-        public string ID { get; set; }
+        public string Id { get; set; }
         public string Word { get; set; }
         public string Syllables { get; set; }
         public string Url { get; set; }

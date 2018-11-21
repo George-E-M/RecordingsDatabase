@@ -14,7 +14,7 @@ namespace RecordingsDatabase.Migrations
                     Word = table.Column<string>(nullable: true),
                     Syllables = table.Column<string>(nullable: true),
                     Url = table.Column<string>(nullable: true),
-                    Tags = table.Column<string>(nullable: true),
+                    Tag = table.Column<string>(nullable: true),
                     Uploaded = table.Column<string>(nullable: true),
                     RecordingLength = table.Column<string>(nullable: true),
                     Rating = table.Column<string>(nullable: true)

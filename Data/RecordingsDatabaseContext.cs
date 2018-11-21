@@ -13,6 +13,6 @@ namespace RecordingsDatabase.Models
         {
         }
 
-        public DbSet<RecordingsDatabase.Models.Recording> Recordings { get; set; }
+        public DbSet<RecordingsDatabase.Models.Recording> Recording { get; set; }
     }
 }

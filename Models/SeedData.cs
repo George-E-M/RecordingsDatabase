@@ -15,12 +15,12 @@ namespace RecordingsDatabase.Models
                 serviceProvider.GetRequiredService<DbContextOptions<RecordingsDatabaseContext>>()))
             {
                 // Look for any movies.
-                if (context.Recordings.Count() > 0)
+                if (context.Recording.Count() > 0)
                 {
                     return;   // DB has been seeded
                 }
 
-                context.Recordings.AddRange(
+                context.Recording.AddRange(
                     new Recording
                     {
                         Word = "George",
