@@ -124,6 +124,17 @@ namespace RecordingsDatabase.Controllers
             return Ok(recording);
         }
 
+        // GET: api/Recordings/All
+        [Route("all")]
+        [HttpGet]
+        public async Task<List<Recording>> GetAllRecordings()
+        {
+            var recordings = from r in _context.Recording select r;
+            var returned = await recordings.ToListAsync();
+
+            return returned;
+        }
+
         // GET: api/Recordings/Tags
         [Route("tags")]
         [HttpGet]
