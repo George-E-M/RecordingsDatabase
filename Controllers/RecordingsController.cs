@@ -135,8 +135,24 @@ namespace RecordingsDatabase.Controllers
             return returned;
         }
 
-        // GET: api/Recordings/Tags
-        [Route("tags")]
+        // Get: api/Recordings/search
+        [HttpGet]
+        [Route("search")]
+        public async Task<List<Recording>> GetWordRecordings ([FromQuery] string input)
+        {
+            var recordings = from r in _context.Recording select r;
+            if (!String.IsNullOrEmpty(input)) // Return all recordings if string is empty
+            {
+                recordings = recordings.Where(s => s.Word.ToLower().Equals(input.ToLower()) || s.Tag.ToLower().Equals(input.ToLower()); // Returns all recordings of the word
+            }
+
+            var returned = await recordings.ToListAsync();
+
+            return returned;
+        }
+
+        // GET: api/Recordings/tags
+        [Route("tag")]
         [HttpGet]
         public async Task<List<string>> GetTags()
         {
