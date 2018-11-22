@@ -143,7 +143,7 @@ namespace RecordingsDatabase.Controllers
             var recordings = from r in _context.Recording select r;
             if (!String.IsNullOrEmpty(input)) // Return all recordings if string is empty
             {
-                recordings = recordings.Where(s => s.Word.ToLower().Equals(input.ToLower()) || s.Tag.ToLower().Equals(input.ToLower()); // Returns all recordings of the word
+                recordings = recordings.Where(s => s.Word.ToLower().Equals(input.ToLower()) || s.Tag.ToLower().Equals(input.ToLower())); // Returns all recordings of the word
             }
 
             var returned = await recordings.ToListAsync();
