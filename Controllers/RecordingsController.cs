@@ -151,7 +151,7 @@ namespace RecordingsDatabase.Controllers
             return returned;
         }
 
-        // GET: api/Recordings/tags
+        // GET: api/Recordings/tag
         [Route("tag")]
         [HttpGet]
         public async Task<List<string>> GetTags()
@@ -168,6 +168,8 @@ namespace RecordingsDatabase.Controllers
         {
             return _context.Recording.Any(e => e.Id == id);
         }
+
+        //Post api/Recordings/upload
 
         [HttpPost, Route("upload")]
         public async Task<IActionResult> UploadFile([FromForm]RecordingItem recording)
