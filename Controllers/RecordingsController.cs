@@ -124,17 +124,6 @@ namespace RecordingsDatabase.Controllers
             return Ok(recording);
         }
 
-        // GET: api/Recordings/All
-        [Route("all")]
-        [HttpGet]
-        public async Task<List<Recording>> GetAllRecordings()
-        {
-            var recordings = from r in _context.Recording select r;
-            var returned = await recordings.ToListAsync();
-
-            return returned;
-        }
-
         // Get: api/Recordings/search
         [HttpGet]
         [Route("search")]
@@ -144,6 +133,22 @@ namespace RecordingsDatabase.Controllers
             if (!String.IsNullOrEmpty(input)) // Return all recordings if string is empty
             {
                 recordings = recordings.Where(s => s.Word.ToLower().Equals(input.ToLower()) || s.Tag.ToLower().Equals(input.ToLower())); // Returns all recordings of the word
+            }
+
+            var returned = await recordings.ToListAsync();
+
+            return returned;
+        }
+
+        // GET: api/Recordings/bad
+        [HttpGet]
+        [Route("bad")]
+        public async Task<List<Recording>> GetBadRecordings([FromQuery] string input)
+        {
+            var recordings = from r in _context.Recording select r;
+            if (!String.IsNullOrEmpty(input)) // Return all recordings if string is empty
+            {
+                recordings = recordings.Where(s => s.Rating.ToLower().Equals("false"));
             }
 
             var returned = await recordings.ToListAsync();
