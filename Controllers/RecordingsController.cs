@@ -143,13 +143,11 @@ namespace RecordingsDatabase.Controllers
         // GET: api/Recordings/bad
         [HttpGet]
         [Route("bad")]
-        public async Task<List<Recording>> GetBadRecordings([FromQuery] string input)
+        public async Task<List<Recording>> GetBadRecordings()
         {
             var recordings = from r in _context.Recording select r;
-            if (!String.IsNullOrEmpty(input)) // Return all recordings if string is empty
-            {
-                recordings = recordings.Where(s => s.Rating.ToLower().Equals("false"));
-            }
+
+            recordings = recordings.Where(s => s.Rating.ToLower().Equals("false"));
 
             var returned = await recordings.ToListAsync();
 
